@@ -1,6 +1,3 @@
-[![GitHub stars](https://img.shields.io/github/stars/mooejun/scarf.svg)](https://github.com/mooejun/scarf/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/mooejun/scarf.svg)](https://github.com/mooejun/scarf/network)
-[![GitHub issues](https://img.shields.io/github/issues/mooejun/scarf.svg)](https://github.com/mooejun/scarf/issues)
 
 ## 更新日志
 

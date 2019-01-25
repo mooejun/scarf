@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.mooejun.scarf.modules.ylink.dao.YlinkOverMapper">
+  <resultMap id="BaseResultMap" type="me.mooejun.scarf.modules.ylink.entity.YlinkOver">
+    <id column="over_id" jdbcType="INTEGER" property="overId" />
+    <result column="emp_id" jdbcType="INTEGER" property="empId" />
+    <result column="sdatetime" jdbcType="TIMESTAMP" property="sdatetime" />
+    <result column="edatetime" jdbcType="TIMESTAMP" property="edatetime" />
+    <result column="cdatetime" jdbcType="TIMESTAMP" property="cdatetime" />
+    <result column="hours" jdbcType="INTEGER" property="hours" />
+    <result column="holidayflag" jdbcType="INTEGER" property="holidayflag" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    over_id, emp_id, sdatetime, edatetime, cdatetime, hours, holidayflag
+  </sql>
+  <select id="selectByExample" parameterType="me.mooejun.scarf.modules.ylink.entity.YlinkOverExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from ylink_over
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ylink_over
+    where over_id = #{overId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ylink_over
+    where over_id = #{overId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="me.mooejun.scarf.modules.ylink.entity.YlinkOver">
+    insert into ylink_over (over_id, emp_id, sdatetime, 
+      edatetime, cdatetime, hours, 
+      holidayflag)
+    values (#{overId,jdbcType=INTEGER}, #{empId,jdbcType=INTEGER}, #{sdatetime,jdbcType=TIMESTAMP}, 
+      #{edatetime,jdbcType=TIMESTAMP}, #{cdatetime,jdbcType=TIMESTAMP}, #{hours,jdbcType=INTEGER}, 
+      #{holidayflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="me.mooejun.scarf.modules.ylink.entity.YlinkOver">
+    insert into ylink_over
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="overId != null">
+        over_id,
+      </if>
+      <if test="empId != null">
+        emp_id,
+      </if>
+      <if test="sdatetime != null">
+        sdatetime,
+      </if>
+      <if test="edatetime != null">
+        edatetime,
+      </if>
+      <if test="cdatetime != null">
+        cdatetime,
+      </if>
+      <if test="hours != null">
+        hours,
+      </if>
+      <if test="holidayflag != null">
+        holidayflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="overId != null">
+        #{overId,jdbcType=INTEGER},
+      </if>
+      <if test="empId != null">
+        #{empId,jdbcType=INTEGER},
+      </if>
+      <if test="sdatetime != null">
+        #{sdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edatetime != null">
+        #{edatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdatetime != null">
+        #{cdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hours != null">
+        #{hours,jdbcType=INTEGER},
+      </if>
+      <if test="holidayflag != null">
+        #{holidayflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="me.mooejun.scarf.modules.ylink.entity.YlinkOver">
+    update ylink_over
+    <set>
+      <if test="empId != null">
+        emp_id = #{empId,jdbcType=INTEGER},
+      </if>
+      <if test="sdatetime != null">
+        sdatetime = #{sdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edatetime != null">
+        edatetime = #{edatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdatetime != null">
+        cdatetime = #{cdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hours != null">
+        hours = #{hours,jdbcType=INTEGER},
+      </if>
+      <if test="holidayflag != null">
+        holidayflag = #{holidayflag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where over_id = #{overId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="me.mooejun.scarf.modules.ylink.entity.YlinkOver">
+    update ylink_over
+    set emp_id = #{empId,jdbcType=INTEGER},
+      sdatetime = #{sdatetime,jdbcType=TIMESTAMP},
+      edatetime = #{edatetime,jdbcType=TIMESTAMP},
+      cdatetime = #{cdatetime,jdbcType=TIMESTAMP},
+      hours = #{hours,jdbcType=INTEGER},
+      holidayflag = #{holidayflag,jdbcType=INTEGER}
+    where over_id = #{overId,jdbcType=INTEGER}
+  </update>
+</mapper>
