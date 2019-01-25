@@ -14,7 +14,7 @@ import me.mooejun.scarf.modules.test.entity.Test;
 import me.mooejun.scarf.modules.test.service.TestService;
 
 @Controller
-@RequestMapping(value = "${adminPath}/test")
+@RequestMapping(value = "/test")
 public class TestController extends BaseController {
 
 	protected Logger logger = LoggerFactory.getLogger(getClass());

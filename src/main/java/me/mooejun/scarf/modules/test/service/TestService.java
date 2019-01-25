@@ -16,7 +16,7 @@ import me.mooejun.scarf.modules.test.entity.Test;
  */
 @Service
 @Transactional(readOnly = true)
-public class TestService implements TestDao {
+public class TestService {
 	/**
 	 * 日志对象
 	 */
@@ -25,32 +25,26 @@ public class TestService implements TestDao {
 	@Autowired
 	private TestDao testDao;
 
-	@Override
 	public Test get(String id) {
 		return testDao.get(id);
 	}
 
-	@Override
 	public List<Test> findList(Test test) {
 		return testDao.findList(test);
 	}
 
-	@Override
 	public List<Test> findAllList(Test test) {
 		return testDao.findAllList(test);
 	}
 
-	@Override
 	public int insert(Test test) {
 		return testDao.insert(test);
 	}
 
-	@Override
 	public int update(Test test) {
 		return testDao.update(test);
 	}
 
-	@Override
 	public int delete(Test test) {
 		return testDao.delete(test);
 	}

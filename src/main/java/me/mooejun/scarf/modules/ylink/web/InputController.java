@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since 2019-01-25
  */
 @Controller
-@RequestMapping(value = "${ylinkPath}/input")
+//@RequestMapping(value = "${ylinkPath}/input")
+@RequestMapping(value = "/ylink/input")
 public class InputController {
 
 }
