@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.mooejun.scarf.modules.test.dao.TestDao">
+    
+    <sql id="testColumns">
+		t.*
+	</sql>
+    
+    <select id="get" resultType="me.mooejun.scarf.modules.test.entity.Test">
+		SELECT 
+			<include refid="testColumns"/>
+		FROM tb_test t
+		WHERE t.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="me.mooejun.scarf.modules.test.entity.Test">
+		SELECT 
+			<include refid="testColumns"/>
+		FROM tb_test t
+		WHERE 1=1
+		<if test="name != null and name != ''">
+			AND t.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mysql'">CONCAT('%', #{name}, '%')</if>
+		</if>
+		ORDER BY t.id DESC
+	</select>
+	
+	<select id="findAllList" resultType="me.mooejun.scarf.modules.test.entity.Test">
+		SELECT 
+			<include refid="testColumns"/>
+		FROM tb_test t
+		WHERE 1=1
+		ORDER BY a.id DESC
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sys_user(
+			id,
+			name,
+			sex
+		) VALUES (
+			#{id},
+			#{name},
+			#{sex}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE tb_test SET 
+			name = #{name},
+			sex = #{sex}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		delete tb_test WHERE id = #{id}
+	</update>
+	
+</mapper>
