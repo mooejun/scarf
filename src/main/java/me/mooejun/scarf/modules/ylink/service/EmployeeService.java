@@ -1,5 +1,8 @@
 package me.mooejun.scarf.modules.ylink.service;
 
+import java.util.List;
+
+import me.mooejun.scarf.modules.ylink.dto.YlinkEmpDto;
 import me.mooejun.scarf.modules.ylink.entity.YlinkEmp;
 
 /**
@@ -9,4 +12,6 @@ import me.mooejun.scarf.modules.ylink.entity.YlinkEmp;
 public interface EmployeeService {
 
     public YlinkEmp getByEmpNo(String empNo);
+    
+    public List<YlinkEmpDto> findEmpList();
 }
