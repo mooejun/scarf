@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import me.mooejun.common.web.BaseController;
+import me.mooejun.scarf.common.web.BaseController;
 import me.mooejun.scarf.modules.test.entity.Test;
 import me.mooejun.scarf.modules.test.service.TestService;
 

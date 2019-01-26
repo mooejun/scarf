@@ -1,9 +1,12 @@
 package me.mooejun.scarf.modules.ylink.dao;
 
 import java.util.List;
+
+import me.mooejun.scarf.common.persistence.annotation.MyBatisDao;
 import me.mooejun.scarf.modules.ylink.entity.YlinkEmp;
 import me.mooejun.scarf.modules.ylink.entity.YlinkEmpExample;
 
+@MyBatisDao
 public interface YlinkEmpMapper {
     int deleteByPrimaryKey(Integer empId);
 

@@ -1,4 +1,4 @@
-package me.mooejun.common.web;
+package me.mooejun.scarf.common.web;
 
 import org.springframework.beans.factory.annotation.Value;
 

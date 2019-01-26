@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import me.mooejun.scarf.modules.ylink.entity.YlinkEmp;
-import me.mooejun.scarf.modules.ylink.service.EmpService;
 import me.mooejun.scarf.modules.ylink.service.EmployeeService;
 
 /**
@@ -21,16 +20,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
-    @Autowired
-    private EmpService empService;
 
     @RequestMapping("/get")
     public YlinkEmp get(@RequestParam(required = true) String empNo) {
         return this.employeeService.getByEmpNo(empNo);
-    }
-    
-    @RequestMapping("/get2")
-    public YlinkEmp get2(@RequestParam(required = true) String empNo) {
-        return this.empService.getByEmpNo(empNo);
     }
 }
