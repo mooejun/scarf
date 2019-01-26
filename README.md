@@ -8,8 +8,9 @@
 * 2019-1-24：整合Mybatis、log4j
 
 
-## TODO List
+## 待办清单
 
+- [x] 腾讯云本地环境搭建
 - [x] 框架应用SSM
 - [x] 修改数据库为mysql
 - [ ] Redis（日志系统等）

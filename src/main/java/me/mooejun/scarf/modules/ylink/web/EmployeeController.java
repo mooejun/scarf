@@ -28,6 +28,13 @@ public class EmployeeController extends BaseController {
     @Autowired
     private EmployeeService employeeService;
 
+    @RequestMapping(value = { "list", "" })
+    public String empList(Model model) {
+        List<YlinkEmpDto> ylinkEmpDtos = this.employeeService.findEmpList();
+        model.addAttribute("empList", ylinkEmpDtos);
+        return "modules/ylink/empList";
+    }
+    
     @RequestMapping("/get")
     public YlinkEmpDto get(@RequestParam(required = true) String empNo, HttpServletRequest request,
             HttpServletResponse response, Model model) {
@@ -36,12 +43,5 @@ public class EmployeeController extends BaseController {
         YlinkEmpDto ylinkEmpDto = new YlinkEmpDto(ylinkEmp.getEmpNo(), ylinkEmp.getEmpName(), ylinkEmp.getEmpSex());
         model.addAttribute("ylinkEmpDto", ylinkEmpDto);
         return ylinkEmpDto;
-    }
-
-    @RequestMapping("/empList")
-    public String empList(HttpServletRequest request, HttpServletResponse response, Model model) {
-        List<YlinkEmpDto> ylinkEmpDtos = this.employeeService.findEmpList();
-        model.addAttribute("ylinkEmpList", ylinkEmpDtos);
-        return "modules/ylink/ylinkEmpList";
     }
 }

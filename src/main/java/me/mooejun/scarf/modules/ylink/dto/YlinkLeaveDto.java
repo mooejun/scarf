@@ -1,8 +1,12 @@
-package me.mooejun.scarf.modules.ylink.entity;
+package me.mooejun.scarf.modules.ylink.dto;
 
 import java.util.Date;
 
-public class YlinkLeave {
+/**
+ * @author mooejun
+ * @since 2019-01-26
+ */
+public class YlinkLeaveDto {
     private Integer leaveId;
 
     private Integer leaveType;
@@ -66,7 +70,7 @@ public class YlinkLeave {
     /**
      * 
      */
-    public YlinkLeave() {
+    public YlinkLeaveDto() {
         super();
     }
 
@@ -78,7 +82,8 @@ public class YlinkLeave {
      * @param edatetime
      * @param days
      */
-    public YlinkLeave(Integer leaveId, Integer leaveType, Integer empId, Date sdatetime, Date edatetime, Float days) {
+    public YlinkLeaveDto(Integer leaveId, Integer leaveType, Integer empId, Date sdatetime, Date edatetime,
+            Float days) {
         super();
         this.leaveId = leaveId;
         this.leaveType = leaveType;

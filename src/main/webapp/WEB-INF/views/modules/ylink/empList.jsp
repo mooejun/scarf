@@ -14,7 +14,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${ylinkEmpList}" var="model">
+			<c:forEach items="${empList}" var="model">
 				<tr>
 					<td>${model.empNo}</td>
 					<td>${model.empName}</td>
