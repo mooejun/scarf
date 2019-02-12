@@ -17,36 +17,36 @@ import me.mooejun.scarf.modules.test.entity.Test;
 @Service
 @Transactional(readOnly = true)
 public class TestService {
-	/**
-	 * 日志对象
-	 */
-	protected Logger logger = LoggerFactory.getLogger(getClass());
-	
-	@Autowired
-	private TestDao testDao;
+    /**
+     * 日志对象
+     */
+    protected Logger logger = LoggerFactory.getLogger(getClass());
 
-	public Test get(String id) {
-		return testDao.get(id);
-	}
+    @Autowired
+    private TestDao testDao;
 
-	public List<Test> findList(Test test) {
-		return testDao.findList(test);
-	}
+    public Test get(String id) {
+        return testDao.get(id);
+    }
 
-	public List<Test> findAllList(Test test) {
-		return testDao.findAllList(test);
-	}
+    public List<Test> findList(Test test) {
+        return testDao.findList(test);
+    }
 
-	public int insert(Test test) {
-		return testDao.insert(test);
-	}
+    public List<Test> findAllList(Test test) {
+        return testDao.findAllList(test);
+    }
 
-	public int update(Test test) {
-		return testDao.update(test);
-	}
+    public int insert(Test test) {
+        return testDao.insert(test);
+    }
 
-	public int delete(Test test) {
-		return testDao.delete(test);
-	}
+    public int update(Test test) {
+        return testDao.update(test);
+    }
+
+    public int delete(Test test) {
+        return testDao.delete(test);
+    }
 
 }
