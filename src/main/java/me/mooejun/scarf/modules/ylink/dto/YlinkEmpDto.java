@@ -39,11 +39,6 @@ public class YlinkEmpDto {
         super();
     }
 
-    /**
-     * @param empNo
-     * @param empName
-     * @param empSex
-     */
     public YlinkEmpDto(String empNo, String empName, String empSex) {
         super();
         this.empNo = empNo;

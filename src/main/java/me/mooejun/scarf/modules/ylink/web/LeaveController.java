@@ -1,11 +1,7 @@
 package me.mooejun.scarf.modules.ylink.web;
 
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,9 +26,6 @@ public class LeaveController extends BaseController {
     
     /**
      * 请假列表
-     * @param request
-     * @param response
-     * @param model
      */
     @RequestMapping(value = { "list", "" })
     public String empList(Model model) {
@@ -43,8 +36,6 @@ public class LeaveController extends BaseController {
     
     /**
      * 请假申请
-     * @param leave
-     * @param model
      */
     @RequestMapping(value = {"form"})
     public String form(YlinkLeaveDto leave, Model model) {
@@ -54,9 +45,6 @@ public class LeaveController extends BaseController {
     
     /**
      * 保存请假信息
-     * @param request
-     * @param response
-     * @param model
      */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(YlinkLeaveDto ylinkLeaveDto, RedirectAttributes redirectAttributes) {

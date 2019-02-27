@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import me.mooejun.scarf.common.exceptions.ScarfException;
 import me.mooejun.scarf.modules.ylink.dao.YlinkEmpMapper;
 import me.mooejun.scarf.modules.ylink.dto.YlinkEmpDto;
 import me.mooejun.scarf.modules.ylink.entity.YlinkEmp;
@@ -32,6 +33,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         YlinkEmpExample example = new YlinkEmpExample();
         example.createCriteria().andEmpNoEqualTo(empNo);
         List<YlinkEmp> ylinkEmps = this.ylinkEmpMapper.selectByExample(example);
+        if (ylinkEmps == null || ylinkEmps.size() <= 0) {
+            throw new ScarfException("9999", "未找到相应员工！");
+        }
         return ylinkEmps.get(0);
     }
 

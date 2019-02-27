@@ -67,21 +67,10 @@ public class YlinkLeaveDto {
         this.days = days;
     }
 
-    /**
-     * 
-     */
     public YlinkLeaveDto() {
         super();
     }
 
-    /**
-     * @param leaveId
-     * @param leaveType
-     * @param empId
-     * @param sdatetime
-     * @param edatetime
-     * @param days
-     */
     public YlinkLeaveDto(Integer leaveId, Integer leaveType, Integer empId, Date sdatetime, Date edatetime,
             Float days) {
         super();
